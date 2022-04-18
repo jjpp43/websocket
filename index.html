@@ -1,0 +1,46 @@
+<h1>Real Time messaging</h1>
+<pre id="messages" style="height:400px; overflow: scroll"></pre>
+<input type="text" id="messageBox" placeholder="Type your message" style="display: block; width:100%; margin-bottom: 10px; padding: 10px" />
+<button id="sendBtn" title="Send message" style="width: 100%; height: 30px;">Send Message</button>
+
+<script>
+    (function() {
+        const sendBtn = document.querySelector('#sendBtn');
+        const messages = document.querySelector('#messages');
+        const messageBox = document.querySelector('messageBox');
+
+        let ws;
+
+        function showMessage(message) {
+            messages.textContent += `\n\n${message}`;
+            messages.scrollTop = messages.scrollHeight;
+            messageBox.value = '';
+        }
+
+        function init() {
+            if(ws) {
+                we.onerror = we.onopen = ws.onclose = null;
+                ws.close();
+            }
+
+            ws = new WebSocket('ws://');
+            ws.onopen = () => {
+                console.log('Connection opened');
+            }
+            ws.onmessage = ({ data }) => showMessage(data);
+            ws.onclose = function () {
+                ws = null;
+            }
+        }
+
+        sendBtn.onclick = function() {
+            if(!ws) {
+                showMessage('No Websocket connection')
+                return;
+            }
+            ws.send(messageBox.value);
+            showMessage(messsageBox.value);
+        }
+        init();
+    })();
+</script>

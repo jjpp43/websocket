@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "ws": "^8.5.0"
+  },
+  "name": "websocket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjpp43/websocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjpp43/websocket/issues"
+  },
+  "homepage": "https://github.com/jjpp43/websocket#readme",
+  "description": ""
+}
